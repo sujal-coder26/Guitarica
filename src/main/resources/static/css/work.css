@@ -1,0 +1,236 @@
+html, body {
+	height: 100%;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.main-body {
+	font-family: 'Roboto Condensed', sans-serif;
+	line-height: 1.7;
+	perspective-origin: 0% 50%;
+	perspective: 800px;
+	background: #21212d;
+}
+
+nav, main {
+	transition: transform 150ms ease-out;
+}
+
+nav {
+	z-index: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 16em;
+	background-color: #353441;
+	transform: translateX(-16em);
+}
+
+.homeheading {
+	font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+	position: relative;
+	top: 100px;
+}
+ .homeparagraph{
+	font-size:25px;
+	position:relative;
+	top:120px;
+} 
+.homeparagraph2{
+	font-size:25px;
+	position:relative;
+	top:135px;
+
+} 
+
+.homebutton{
+	position:relative;
+	top:180px;
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 40px;
+  justify-content: center;
+  line-height: 1.8em;
+  max-width: 100%;
+  min-width: 500px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.homebutton:active,
+.homebutton:hover {
+  outline: 0;
+}
+.homebutton span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.homebutton:hover span {
+  background: none;
+}
+
+nav.menu-active {
+	transform: translateX(0);
+}
+
+nav.menu-hover {
+	transform: translateX(-15em);
+}
+
+nav h1 {
+	z-index: 100;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -65px;
+	height: 60px;
+	width: 65px;
+	line-height: 60px;
+	font-size: 0.8em;
+	font-weight: 300;
+	letter-spacing: 1px;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	background-color: #353441;
+	cursor: pointer;
+}
+
+nav h1:hover {
+	color: white;
+	background: rgb(18, 13, 46);
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+	padding: 0 1em;
+	width: 100%;
+	height: 60px;
+	color: #9dc6d1;
+	line-height: 60px;
+	background-color: #353441;
+	transition: all 0.5s ease-in;
+}
+
+nav li:nth-of-type(2n) {
+	background-color: #3a3947;
+}
+
+nav li:hover {
+	background: rgb(18, 13, 46);
+	color: white;
+	cursor: pointer;
+}
+
+main {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	background-image:
+		url("https://static.toiimg.com/thumb/msid-80009581,width-1200,height-900,resizemode-4/.jpg");
+	transform-origin: 0% 50%;
+	background-size: cover;
+}
+
+main:after {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(to right, transparent, rgba(33, 33, 45, .5));
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 150ms ease-out, visibility 0s 150ms;
+}
+
+main.menu-active {
+	border-radius: 0.001px;
+	transform: translateX(16em) rotateY(15deg);
+}
+
+main.menu-active:after {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 150ms ease-out, visibility 0s;
+}
+
+main.menu-hover {
+	border-radius: 0.001px;
+	transform: translateX(1em) rotateY(1deg);
+}
+
+main section {
+	position: absolute;
+	top: 0;
+	left: 500;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	padding: 1em 4em;
+	max-width: 680px;
+	overflow: auto;
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.homepageSection h1 {
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 2em;
+	color: white;
+}
+
+.homepageSection p {
+	display: inline-block;
+	margin: 16px 0;
+	color: white;
+	font-size: 18px;
+}
+textarea{
+	resize: none;
+}
+.my-card{
+	padding: 20px;
+	background: white;
+
+}
+.signupbody{
+	background-color: bisque;
+}
