@@ -1,112 +1,65 @@
 package com.web.guitarapp.entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name="USER")
-public class User  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String password;
-    private String username;
-    @Column(unique = true)
-    private String email;
-    private String phoneNumber;
-    private boolean enabled;
-    private String role;
-    @Column(length = 500)
-    private String about;
-    private String imageurl;
+@Table(name = "USER")
+@Data
+public class User implements Serializable {
 
-    public User(){
-        super();
-    }
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int id;
 
-    public String getImageurl() {
-        return imageurl;
-    }
+  private String password;
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
-    }
+  private String username;
 
-    public int getId() {
-        return id;
-    }
+  @Column(unique = true)
+  private String email;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  private String phoneNumber;
 
-    public String getPassword() {
-        return password;
-    }
+  private boolean enabled;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  private String role;
 
-    public String getUsername() {
-        return username;
-    }
+  @Column(length = 500)
+  private String about;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  private String imageurl;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public void setAbout(String about) {
-        this.about = about;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", password='" + password + '\'' +
-                ", username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", enabled=" + enabled +
-                ", role='" + role + '\'' +
-                ", about='" + about + '\'' +
-                ", imageurl='" + imageurl + '\'' +
-                '}';
-    }
-
+  @Override
+  public String toString() {
+    return "User{"
+        + "id="
+        + id
+        + ", password='"
+        + password
+        + '\''
+        + ", username='"
+        + username
+        + '\''
+        + ", email='"
+        + email
+        + '\''
+        + ", phoneNumber='"
+        + phoneNumber
+        + '\''
+        + ", enabled="
+        + enabled
+        + ", role='"
+        + role
+        + '\''
+        + ", about='"
+        + about
+        + '\''
+        + ", imageurl='"
+        + imageurl
+        + '\''
+        + '}';
+  }
 }
