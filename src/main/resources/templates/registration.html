@@ -9,24 +9,34 @@
     <title>Title</title>
 
 </head>
+
 <body class="signupbody">
 <section>
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="my-card">
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert " role="alert">
+                        <p class="text-center" th:text="${session.message.content}"></p>
+                        <th:block th:text="${#session.removeAttribute('message')}"> </th:block>
+                    </div>
                     <h1 class="text-center">Sign Up Now!</h1>
-                    <form action="" th:action="@{/doRegister}" method="post" th:object="${user}">
+                    <form novalidate action="" th:action="@{/doRegister}" method="post" th:object="${user}">
                         <div class="form-group">
-                            <label for="name-field">Your Name</label>
-                            <input name="username" type="text" class="form-control" id="name-field" aria-describedby="emailHelp" placeholder="Enter Here..." required th:value="${user.username}"/>
+                            <label for="name-field">Your Full Name</label>
+                            <input  name="username" class="form-control" th:classappend="${#fields.hasErrors('username') ? 'is-invalid':''}" type="text" id="name-field" aria-describedby="emailHelp" placeholder="Enter Here..." required th:value="${user.username}"/>
+                            <div class="invalid-feedback" th:each="e: ${#fields.errors('username')}" th:text="${e}">
+
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="email-field">Your Email</label>
-                            <input name="email" type="text" class="form-control" id="email-field" aria-describedby="emailHelp" placeholder="Enter Here..." required th:value="${user.email}">
-                        </div>
+                            <input name="email" type="text" class="form-control" th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}" id="email-field" aria-describedby="emailHelp" placeholder="Enter Here..." required th:value="${user.email}">
+                            <div class="invalid-feedback" th:each="e: ${#fields.errors('email')}" th:text="${e}">
+
+                            </div>
                         <div class="form-group">
-                            <label for="password-field">Your Email</label>
+                            <label for="password-field">Your Password</label>
                             <input name="password" type="password" class="form-control" id="password-field" aria-describedby="emailHelp" placeholder="Enter Here..." required =required>
                         </div>
 

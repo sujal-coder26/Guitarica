@@ -3,6 +3,10 @@ package com.web.guitarapp.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -15,10 +19,12 @@ public class User implements Serializable {
   private int id;
 
   private String password;
-
+@NotBlank(message = "Name field can't be empty")
+@Size(min = 2, max = 25, message = "Characters number should be between 2-25 ")
   private String username;
 
   @Column(unique = true)
+  @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid Email")
   private String email;
 
   private String phoneNumber;
