@@ -35,14 +35,19 @@
                             <div class="invalid-feedback" th:each="e: ${#fields.errors('email')}" th:text="${e}">
 
                             </div>
+                        </div>
                         <div class="form-group">
                             <label for="password-field">Your Password</label>
-                            <input name="password" type="password" class="form-control" id="password-field" aria-describedby="emailHelp" placeholder="Enter Here..." required =required>
+                            <input name="password" type="password" class="form-control" th:classappend="${#fields.hasErrors('password') ? 'is-invalid':''}" id="password-field" aria-describedby="emailHelp" placeholder="Enter Here..." required =required>
+                           <div class="invalid-feedback" th:each="e: ${#fields.errors('password')}" th:text="${e}">
                         </div>
-
+                        </div>
                         <div class="form-group">
-                            <textarea name="about" th:value="${user.about}" rows="15" cols="20" class="form-control" placeholder="Enter About Yourself..."></textarea>
-                        </div>
+                            <label for="name-field">Tell us something about yourself</label>
+                            <textarea name="about" th:value="${user.about}" rows="15" cols="20" class="form-control" th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}" placeholder="Enter About Yourself..."></textarea>
+                            <div class="invalid-feedback" th:each="e: ${#fields.errors('about')}" th:text="${e}">
+                            </div>
+                            </div>
                         <div class="form-group form-check text-center">
                             <input type="checkbox" name="agreement" class="form-check-input" id="agreement"><label for ="agreement" > Accept Terms and Conditions.</label>
 

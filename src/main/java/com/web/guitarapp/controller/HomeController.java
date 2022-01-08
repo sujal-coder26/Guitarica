@@ -4,6 +4,7 @@ import com.web.guitarapp.dao.UserRepository;
 import com.web.guitarapp.entities.User;
 import com.web.guitarapp.helper.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,11 +16,13 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
 
+  private final BCryptPasswordEncoder passwordEncoder;
   private final UserRepository userRepository;
 
   @Autowired
-  public HomeController(UserRepository userRepository) {
+  public HomeController(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
     this.userRepository = userRepository;
+    this.passwordEncoder = passwordEncoder;
   }
 
   @GetMapping("/home")
@@ -53,6 +56,8 @@ public class HomeController {
      user.setRole("USER");
      user.setEnabled(true);
      user.setImageurl("image1.png");
+//     user.setPassword(passwordEncoder.encode(user.getPassword()));
+
      System.out.println("Agreement: " + agreement);
      System.out.println("User" + user);
      User saveUser = this.userRepository.save(user);
