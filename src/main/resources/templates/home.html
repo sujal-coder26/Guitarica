@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> </title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i"
             rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
+    <title th:text="${title}"> Title </title>
 </head>
 <body class="main-body">
 <nav class="menu-activea">
@@ -30,7 +30,7 @@
         <p class="homeparagraph2">
             Join to the best course and explore the guitar world! 
         </p>
-        <button class="homebutton"> <span> Join Now! </span> </button>
+        <button class="homebutton" href="#"  > <span> <a href="#" th:href="@{/signup}">Join Now! </a></span> </button>
     </section>
     </main>
 <script src="" th:src="@{/js/work.js}"></script>

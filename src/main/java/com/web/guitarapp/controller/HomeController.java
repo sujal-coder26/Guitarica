@@ -25,9 +25,11 @@ public class HomeController {
     this.passwordEncoder = passwordEncoder;
   }
 
-  @GetMapping("/home")
-  public String base() {
-    return "home";
+  @RequestMapping("/home")
+  public String base(Model model) {
+    model.addAttribute("title", "Home - Guitarica");
+   return "home";
+
   }
 
   @GetMapping("/signup")
