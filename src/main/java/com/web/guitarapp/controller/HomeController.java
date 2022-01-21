@@ -6,6 +6,7 @@ import com.web.guitarapp.helper.Message;
 import com.web.guitarapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.ExceptionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -59,7 +60,7 @@ public class HomeController {
       httpSession.setAttribute("message", new Message("Successfully Signed Up", "alert-success"));
       return REGISTRATION;
     } catch (Exception e) {
-      e.printStackTrace();
+      log.error("Exception occurred: ", e);
       model.addAttribute("user", user);
       httpSession.setAttribute(
           "message", new Message("Server Error!!! " + e.getMessage(), "alert-danger"));
