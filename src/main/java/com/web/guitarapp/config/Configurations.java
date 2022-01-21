@@ -1,5 +1,6 @@
 package com.web.guitarapp.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -12,34 +13,46 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@Slf4j
 public class Configurations extends WebSecurityConfigurerAdapter {
-    @Bean
-    public UserDetailsService getUserDetailService(){
-        return new UserDetailsServiceImpl();
-    }
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        System.out.println("Creating Encoder Obejct....");
-        return new BCryptPasswordEncoder();
-    }
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setUserDetailsService(this.getUserDetailService());
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+  @Bean
+  public UserDetailsService getUserDetailService() {
+    return new UserDetailsServiceImpl();
+  }
 
-        return daoAuthenticationProvider;
-    }
+  @Bean
+  public BCryptPasswordEncoder passwordEncoder() {
+    log.info("Creating Encoder object....");
+    return new BCryptPasswordEncoder();
+  }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }
+  @Bean
+  public DaoAuthenticationProvider authenticationProvider() {
+    DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+    daoAuthenticationProvider.setUserDetailsService(this.getUserDetailService());
+    daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/user/**").hasRole("USER")
-                .antMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
+    return daoAuthenticationProvider;
+  }
 
-    }
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.authenticationProvider(authenticationProvider());
+  }
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        .antMatchers("/admin/**")
+        .hasRole("ADMIN")
+        .antMatchers("/user/**")
+        .hasRole("USER")
+        .antMatchers("/**")
+        .permitAll()
+        .and()
+        .formLogin()
+        .and()
+        .csrf()
+        .disable();
+  }
 }
