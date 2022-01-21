@@ -18,7 +18,7 @@ public class User implements Serializable {
     private int id;
 
     @NotBlank(message = "Password field can't be empty")
-    @Size(min = 2, max = 25, message = "Characters number should be between 2-25 ")
+//    @Size(min = 2, max = 25, message = "Characters number should be between 2-25 ")
     private String password;
 
     @NotBlank(message = "Name field can't be empty")
@@ -33,12 +33,11 @@ public class User implements Serializable {
 
     private boolean enabled;
 
-
     private String role;
 
     @Column(length = 500)
     @NotBlank(message = "About field can't be empty")
-    @Size(min = 2, max = 25, message = "Characters number should be between 2-500 ")
+//    @Size(min = 2, max = 25, message = "Characters number should be between 2-500 ")
     private String about;
 
     private String imageurl;

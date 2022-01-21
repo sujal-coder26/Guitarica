@@ -1,14 +1,17 @@
 package com.web.guitarapp.helper;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
-public class Message {
-    private String content;
-    private String type;
+@AllArgsConstructor
+@NoArgsConstructor
+public class Message implements Serializable {
 
-    public Message(String content, String type) {
-        this.content = content;
-        this.type = type;
-    }
+  private String content;
+
+  private String type;
 }
