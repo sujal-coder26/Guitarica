@@ -22,7 +22,6 @@ public class Configurations extends WebSecurityConfigurerAdapter {
 
   @Bean
   public BCryptPasswordEncoder passwordEncoder() {
-    log.info("Creating Encoder object....");
     return new BCryptPasswordEncoder();
   }
 
@@ -51,6 +50,9 @@ public class Configurations extends WebSecurityConfigurerAdapter {
         .permitAll()
         .and()
         .formLogin()
+            .loginPage("/signin")
+            .loginProcessingUrl("/logindo")
+            .defaultSuccessUrl("/user/index")
         .and()
         .csrf()
         .disable();

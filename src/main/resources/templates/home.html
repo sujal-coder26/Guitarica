@@ -22,15 +22,22 @@
     </ul>
 </nav>
 <main>
+    <div>
+        <ol class="content">
+            <li class="content__item">
+                <button class="button homeloginbutton"> <span> <a class="signuphome" href="#" th:href="@{/signin}"> LogIn </a></span></button>
+            </li>
+        </ol>
+    </div>
     <section class="homepageSection">
+        <img class="guitaricalogohome" src="../static/Image/guitarica.jpg" width="100"
+             th:src="@{Image/guitarica.jpg}"/>
         <h1 class="homeheading">Welcome To Guitarica</h1>
-        <p class="homeparagraph">
-            Learn To Grow
-        </p>
         <p class="homeparagraph2">
             Join to the best course and explore the guitar world! 
         </p>
-        <button class="homebutton" href="#"  > <span> <a href="#" th:href="@{/signup}">Join Now! </a></span> </button>
+        <button class="homesignupbutton"> <span> <a class="signuphome" href="#" th:href="@{/signup}">Join Now! </a></span> </button>
+
     </section>
     </main>
 <script src="" th:src="@{/js/work.js}"></script>

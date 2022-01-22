@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title th:text="${title}"> Title </title>
+</head>
+<body class="loginbody">
+<section>
+    <div>
+        <img class="guitaricalogo" src="../static/Image/guitarica.jpg" width="100"
+             th:src="@{Image/guitarica.jpg}"/>
+    </div>
+    <div th:if="${param.error}" class="alert alert-danger">
+        Invalid username and password
+    </div>
+
+    <div th:if="${param.logout}" class="alert alert-danger">
+        You have been log out
+    </div>
+    <form class="login" th:action="@{/logindo}" action="#">
+        <input name="username" type="text" placeholder="Username...">
+        <input name="password" type="password" placeholder="Password...">
+        <button><a href="#">Login</a></button>
+        <button><a href="#" th:href="@{/signup}">Signup</a></button>
+
+    </form>
+</section>
+
+</body>
+</html>

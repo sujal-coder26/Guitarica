@@ -35,23 +35,22 @@ nav {
 	font-family: 'Dancing Script', cursive;
 	font-size: 50px;
 	position: relative;
-	top: 100px;
+	top: 180px;
+	color:white;
 }
- .homeparagraph{
-	font-size:25px;
-	position:relative;
-	top:120px;
-} 
+
 .homeparagraph2{
-	font-size:25px;
+	font-size:28px;
 	position:relative;
-	top:135px;
+	top:220px;
+	color:white;
+	font-family: 'Dancing Script', cursive;
 
-} 
+}
 
-.homebutton{
+.homesignupbutton{
 	position:relative;
-	top:180px;
+	top:370px;
   align-items: center;
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   border: 0;
@@ -75,11 +74,41 @@ nav {
   cursor: pointer;
 }
 
-.homebutton:active,
-.homebutton:hover {
+.homeloginbutton {
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+	font-weight: 700;
+	font-size: 0.85rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	color: #fff;
+	background: #e7e7e7;
+}
+
+.homeloginbutton span {
+	position: relative;
+	mix-blend-mode: difference;
+}
+
+.homeloginbutton::before {
+	content: '';
+	background: #000;
+	width: 120%;
+	left: -10%;
+	transform: skew(30deg);
+	transition: transform 1s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.homeloginbutton:hover::before {
+	transform: translate3d(100%,0,0);
+
+}
+
+.homesignupbutton:active,
+.homesignupbutton:hover {
   outline: 0;
 }
-.homebutton span {
+.homesignupbutton span {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px;
   border-radius: 6px;
@@ -88,7 +117,7 @@ nav {
   transition: 300ms;
 }
 
-.homebutton:hover span {
+.homesignupbutton:hover span {
   background: none;
 }
 
@@ -209,20 +238,6 @@ main section {
 	overflow: auto;
 	background-color: rgba(255, 255, 255, 0.15);
 }
-
-.homepageSection h1 {
-	font-weight: 800;
-	text-transform: uppercase;
-	font-size: 2em;
-	color: white;
-}
-
-.homepageSection p {
-	display: inline-block;
-	margin: 16px 0;
-	color: white;
-	font-size: 18px;
-}
 textarea{
 	resize: none;
 }
@@ -234,6 +249,199 @@ textarea{
 .signupbody{
 	background-color: bisque;
 }
-.hometoregistration{
+.signuphome{
 	text-decoration: none;
+	color:white;
 }
+
+.loginbody {
+	background-color: #f45b69;
+	font-family: "Asap", sans-serif;
+}
+
+.login {
+	overflow: hidden;
+	background-color: white;
+	padding: 40px 30px 30px 30px;
+	border-radius: 10px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 700px;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	-webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+	-moz-transition: -moz-transform 300ms, box-shadow 300ms;
+	transition: transform 300ms, box-shadow 300ms;
+	box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+}
+.login::before, .login::after {
+	content: "";
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	border-top-left-radius: 40%;
+	border-top-right-radius: 45%;
+	border-bottom-left-radius: 35%;
+	border-bottom-right-radius: 40%;
+	z-index: -1;
+}
+.login::before {
+	left: 40%;
+	bottom: -130%;
+	background-color: rgba(69, 105, 144, 0.15);
+	-webkit-animation: wawes 6s infinite linear;
+	-moz-animation: wawes 6s infinite linear;
+	animation: wawes 6s infinite linear;
+}
+.login::after {
+	left: 35%;
+	bottom: -125%;
+	background-color: rgba(2, 128, 144, 0.2);
+	-webkit-animation: wawes 7s infinite;
+	-moz-animation: wawes 7s infinite;
+	animation: wawes 7s infinite;
+}
+.login > input {
+	font-family: "Asap", sans-serif;
+	display: block;
+	border-radius: 5px;
+	font-size: 16px;
+	background: white;
+	width: 60%;
+	border: 0;
+	padding: 10px 10px;
+	margin: 15px -10px;
+}
+.guitaricalogo{
+	border-radius: 50%;
+	position: absolute;
+	top:150px;
+	left:895px;
+}
+.guitaricalogohome{
+	border-radius: 50%;
+	position: absolute;
+	top:20px;
+	left:560px;
+}
+.login > button > a{
+	text-decoration: none;
+	color: white;
+}
+.login > button {
+	font-family: "Asap", sans-serif;
+	cursor: pointer;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	text-transform: uppercase;
+	width: 80px;
+	border: 0;
+	line-height: 20px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: -5px;
+	border-radius: 5px;
+	background-color: #f45b69;
+	-webkit-transition: background-color 300ms;
+	-moz-transition: background-color 300ms;
+	transition: background-color 300ms;
+}
+.login > button:hover {
+	background-color: #f24353;
+}
+
+@-webkit-keyframes wawes {
+	from {
+		-webkit-transform: rotate(0);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes wawes {
+	from {
+		-moz-transform: rotate(0);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+@keyframes wawes {
+	from {
+		-webkit-transform: rotate(0);
+		-moz-transform: rotate(0);
+		-ms-transform: rotate(0);
+		-o-transform: rotate(0);
+		transform: rotate(0);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+	content {
+		display: grid;
+		width: 100%;
+		margin: 0 auto;
+		padding: 10vh 25px;
+		max-width: 1300px;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-auto-rows: 200px;
+		grid-gap: 4rem;
+		grid-row-gap: 6rem;
+		justify-content: center;
+		list-style: none;
+	}
+
+.content__item {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.content__item::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.button {
+	position: absolute;
+	top: 5px;
+	left: 980px;
+	pointer-events: auto;
+	cursor: pointer;
+	background: #e7e7e7;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-family: inherit;
+	font-size: 35px;
+	width: 250px;
+	display: inline-block;
+}
+
+.button::before,
+.button::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+

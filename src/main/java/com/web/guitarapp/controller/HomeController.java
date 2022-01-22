@@ -6,7 +6,6 @@ import com.web.guitarapp.helper.Message;
 import com.web.guitarapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.ExceptionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,9 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import static com.web.guitarapp.util.Constants.REGISTRATION;
-
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -24,7 +21,7 @@ public class HomeController {
 
   private final UserService userService;
 
-  @RequestMapping("/home")
+  @RequestMapping("/")
   public String base(Model model) {
     model.addAttribute("title", "Home - Guitarica");
     return "home";
@@ -54,11 +51,11 @@ public class HomeController {
         model.addAttribute("user", user);
         return REGISTRATION;
       }
-
       userService.save(user);
       model.addAttribute("user", new User());
       httpSession.setAttribute("message", new Message("Successfully Signed Up", "alert-success"));
-      return REGISTRATION;
+      return "login";
+
     } catch (Exception e) {
       log.error("Exception occurred: ", e);
       model.addAttribute("user", user);
@@ -66,5 +63,11 @@ public class HomeController {
           "message", new Message("Server Error!!! " + e.getMessage(), "alert-danger"));
       return REGISTRATION;
     }
+  }
+  @GetMapping("/signin")
+  public String customLogin(Model model){
+    model.addAttribute("title", "Guitarica-LoginPage"
+    );
+    return "login";
   }
 }
