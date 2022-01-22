@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import static com.web.guitarapp.util.Constants.REGISTRATION;
+
+import static com.web.guitarapp.util.Constants.*;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -23,13 +25,13 @@ public class HomeController {
 
   @RequestMapping("/")
   public String base(Model model) {
-    model.addAttribute("title", "Home - Guitarica");
+    model.addAttribute(TITLE, "Home - Guitarica");
     return "home";
   }
 
   @GetMapping("/signup")
   public String signup(Model model) {
-    model.addAttribute("title", "SignUp - Guitarica");
+    model.addAttribute(TITLE, "SignUp - Guitarica");
     model.addAttribute("user", new User());
     return REGISTRATION;
   }
@@ -54,7 +56,7 @@ public class HomeController {
       userService.save(user);
       model.addAttribute("user", new User());
       httpSession.setAttribute("message", new Message("Successfully Signed Up", "alert-success"));
-      return "login";
+      return LOGIN;
 
     } catch (Exception e) {
       log.error("Exception occurred: ", e);
@@ -64,10 +66,21 @@ public class HomeController {
       return REGISTRATION;
     }
   }
+
   @GetMapping("/signin")
-  public String customLogin(Model model){
-    model.addAttribute("title", "Guitarica-LoginPage"
-    );
-    return "login";
+  public String customLogin(Model model) {
+    model.addAttribute(TITLE, "Guitarica-LoginPage");
+    return LOGIN;
+  }
+
+  @PostMapping("/login_error_handler")
+  public String loginFailureHandler() {
+    log.warn("Login failed.");
+    return LOGIN;
+  }
+
+  @GetMapping("/dashboard")
+  public String returnDashboard(){
+    return "dashboard";
   }
 }
