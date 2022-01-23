@@ -1,5 +1,6 @@
 package com.web.guitarapp.config;
 
+import com.web.guitarapp.service.impl.UserDetailsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @Slf4j
-public class Configurations extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
   @Bean
   public UserDetailsService getUserDetailService() {
     return new UserDetailsServiceImpl();
@@ -50,9 +52,11 @@ public class Configurations extends WebSecurityConfigurerAdapter {
         .permitAll()
         .and()
         .formLogin()
-            .loginPage("/signin")
-            .loginProcessingUrl("/logindo")
-            .defaultSuccessUrl("/user/index")
+            .loginPage("/login")
+            .usernameParameter("email")
+            .passwordParameter("password")
+            .defaultSuccessUrl("/dashboard")
+            .failureForwardUrl("/login_error_handler")
         .and()
         .csrf()
         .disable();
