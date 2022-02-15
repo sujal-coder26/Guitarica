@@ -13,7 +13,6 @@ html, body {
 	line-height: 1.7;
 	perspective-origin: 0% 50%;
 	perspective: 800px;
-	background: #21212d;
 }
 
 nav, main {
@@ -194,6 +193,98 @@ main {
 	transform-origin: 0% 50%;
 	background-size: cover;
 }
+.testimonial {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	z-index: 0;
+	position: relative;
+	top: 1000px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.testimonial-head {
+	letter-spacing: 1.1px;
+	margin: 31px 0px;
+	display: flex;
+	padding-left: 65px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.testimonial-head h1 {
+	font-size: 2.1rem;
+	font-weight: 510;
+	background-color: #202020;
+	color: white;
+	padding: 12px 22px;
+}
+.testimonial-head span {
+	font-size: 1.3rem;
+	color: #252525;
+	margin-bottom: 12px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+.testimonial-outside {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.testimonial-inside {
+	width: 550px;
+	box-shadow: 3px 3px 35px rgba(0, 0, 0, 0.1);
+	background-color: white;
+	padding: 22px;
+	margin-left : 80px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+.image-profile {
+	width: 55px;
+	height: 55px;
+	border-radius: 55%;
+	overflow: hidden;
+	margin-right: 12px;
+}
+.image-profile img {
+	height: 100%;
+	width: 100%;
+	object-position: center;
+	object-fit: cover;
+}
+.profile {
+	display: flex;
+	flex-direction: column;
+	padding-right: 7.2rem;
+}
+.username {
+	color: #3d3d3d;
+	font-size: 1.2rem;
+	letter-spacing: 0.7px;
+}
+.username span {
+	color: #979797;
+	font-size: 0.8rem;
+}
+.reviews {
+	color: #f0c60c;
+	margin-bottom: 30px;
+}
+.inside-top {
+	margin-bottom: 22px;
+	display: flex;
+	align-items: center;
+}
+.clients-comment p {
+	font-size: 1.2rem;
+	color: #4b4b4b;
+}
 
 main:after {
 	content: '';
@@ -241,6 +332,11 @@ main section {
 textarea{
 	resize: none;
 }
+.loginpagebuttons{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 .my-card{
 	padding: 20px;
 	background: white;
@@ -255,7 +351,7 @@ textarea{
 }
 
 .loginbody {
-	background-color: #f45b69;
+	background-color: darkcyan;
 	font-family: "Asap", sans-serif;
 }
 
@@ -305,13 +401,27 @@ textarea{
 	-moz-animation: wawes 7s infinite;
 	animation: wawes 7s infinite;
 }
-.login > input {
+.forgotForm input{
+	margin: 0 auto;
+	width: 50%;
+}
+.forgotForm h3{
+	color: white;
+}
+.forgotpasswordlink{
+	color:black;
+	text-decoration: none;
+	margin: 0;
+}
+
+.loginInput {
 	font-family: "Asap", sans-serif;
-	display: block;
+	display: flex;
+	flex-direction: row;
 	border-radius: 5px;
 	font-size: 16px;
 	background: white;
-	width: 60%;
+	width: 100%;
 	border: 0;
 	padding: 10px 10px;
 	margin: 15px -10px;
@@ -322,17 +432,22 @@ textarea{
 	top:150px;
 	left:895px;
 }
+
+.loginlabel {
+	display: flex;
+	margin-bottom: 0.5rem;
+}
 .guitaricalogohome{
 	border-radius: 50%;
 	position: absolute;
 	top:20px;
 	left:560px;
 }
-.login > button > a{
+.login button a{
 	text-decoration: none;
 	color: white;
 }
-.login > button {
+.login button {
 	font-family: "Asap", sans-serif;
 	cursor: pointer;
 	color: #fff;
@@ -347,13 +462,14 @@ textarea{
 	margin-top: 10px;
 	margin-left: -5px;
 	border-radius: 5px;
-	background-color: #f45b69;
+	background-color: darkcyan;
 	-webkit-transition: background-color 300ms;
 	-moz-transition: background-color 300ms;
 	transition: background-color 300ms;
 }
-.login > button:hover {
-	background-color: #f24353;
+.login button:hover {
+	background-color: darkcyan;
+	transition: 1s;
 }
 
 @-webkit-keyframes wawes {

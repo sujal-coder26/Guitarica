@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
+
+    <title th:text="${title}"> Title </title>
+</head>
+<body class="loginbody">
+
+<div th:if="${param.error}" class="alert alert-danger">
+    Invalid username and password
+</div>
+
+<div th:if="${param.logout}" class="alert alert-danger">
+    You have been log out
+</div>
+<div class="alert alert-success" role="alert">
+    OTP is successfully send to your email.
+</div>
+
+<div th:if = "${session.message}" class="container">
+    <div class="alert alert-danger my-2" role="alert">
+        <span th:text="${session.message}"></span>
+    </div>
+    <th:block th:text="${#session.removeAttribute('message')}"> </th:block>
+</div>
+
+<form method="post" class="forgotForm" action="" th:action="@{/otp-verify}">
+    <div class="forgotFormContainer">
+        <h3 class="text-center"> Registered Email </h3>
+        <div class="form-group">
+
+            <input name="otp" required ="required" type="text" class="form-control" placeholder="Enter OTP here" aria-label="Username" aria-describedby="basic-addon1">
+
+        </div>
+        <div class="container text-center">
+            <button class="btn btn-success "> Verify
+
+            </button>
+
+        </div>
+    </div>
+</form>
+</section>
+
+</body>
+</html>

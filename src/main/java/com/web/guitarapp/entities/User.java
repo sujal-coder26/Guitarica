@@ -46,6 +46,9 @@ public class User implements Serializable {
 
     private String imageurl;
 
+    @OneToOne (mappedBy = "user")
+    private CourseTracker coursesTracker;
+
     @Override
     public String toString() {
         return "User{"
@@ -88,5 +91,16 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    @OneToOne(optional = false)
+    private CourseTracker courseTracker;
+
+    public CourseTracker getCourseTracking() {
+        return courseTracker;
+    }
+
+    public void setCourseTracking(CourseTracker courseTracker) {
+        this.courseTracker = courseTracker;
     }
 }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="review.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="testimonial" th:fragment="reviews">
+      <div class="testimonial-head">
+        <span>Comments</span>
+        <h1>Reveiws from Clients</h1>
+      </div>
+
+      <div class="testimonial-outside">
+        <div class="testimonial-inside">
+          <div class="inside-top">
+            <div class="profile">
+              <div class="image-profile">
+                <img src="../static/Image/sujal.jpg"
+                     th:src="@{Image/sujal.jpg}"/>
+              </div>
+              <div class="username">
+                <strong> Sujal Gautam </strong>
+                <span> @SlammerFalcon</span>
+              </div>
+            </div>
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="clients-comment">
+            <p>
+              Really excellent app. Everything is broken down to basics
+              with clear and precise instructions that even a beginner
+              like me has found it easy to understand and learn. Keep up
+              the good work guys!The video presentation is almost like you're
+              in the room. Went from complete beginner who never held a guitar
+              to strumming away at a few songs in no time.
+            </p>
+          </div>
+        </div>
+        <div class="testimonial-inside">
+          <div class="inside-top">
+            <div class="profile">
+              <div class="image-profile">
+                <img src="../static/Image/shubham.jpg"
+                     th:src="@{Image/shubham.jpg}"/>
+              </div>
+              <div class="username">
+                <strong> Shubham Gurung </strong>
+                <span> @Wakuchi</span>
+              </div>
+            </div>
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="clients-comment">
+            <p>
+              Honestly, I downloaded this app just so that I could keep my guitar in tune,
+              turns out this app offers so much more than just being a tuner. Highly recommend,
+              especially for those who are just beginning. It also helps me a lot with my teaching
+              because when I'm not around my students can learn new chords at there leisure. 5 stars.
+            </p>
+          </div>
+        </div>
+        <div class="testimonial-inside">
+          <div class="inside-top">
+            <div class="profile">
+              <div class="image-profile">
+                <img src="../static/Image/milan.jpg"
+                     th:src="@{Image/milan.jpg}"/>
+              </div>
+              <div class="username">
+                <strong>Milan Khatiwada </strong>
+                <span> @Mr.Pheonix</span>
+              </div>
+            </div>
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="clients-comment">
+            <p>
+              Brand new to guitar. This app helped me understand what the physical
+              tuner was trying to tell me about tuning up or down. It is intuitive
+              and simple to use. The lessons are well classified and the parts are
+              also kept according to the increasing level. Really an awesome site.
+              I truely recomment this if you are new to this field.
+            </p>
+          </div>
+        </div>
+        <div class="testimonial-inside">
+          <div class="inside-top">
+            <div class="profile">
+              <div class="image-profile">
+                <img src="../static/Image/kushal.jpg"
+                     th:src="@{Image/kushal.jpg}"/>
+              </div>
+              <div class="username">
+                <strong> Kushal Upreti </strong>
+                <span> @Icy01</span>
+              </div>
+            </div>
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="clients-comment">
+            <p>
+              Very easy to use and accurate. My Friend is a professional who plays Nd fixes guitars.
+              He tuned mine on his pro system and I used this app to see if it matched and it was bang on!
+              Much easier than his sophisticated system and easy for a beginner like me.Highly recommend,
+              especially for those who are just beginning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

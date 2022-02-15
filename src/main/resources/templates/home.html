@@ -2,8 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i"
             rel="stylesheet"/>
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+            rel="stylesheet"
+    />
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
     <title th:text="${title}"> Title </title>
@@ -39,8 +45,11 @@
         <button class="homesignupbutton"> <span> <a class="signuphome" href="#" th:href="@{/signup}">Join Now! </a></span> </button>
 
     </section>
+
     </main>
+<div th:replace="review :: reviews"></div>
 <script src="" th:src="@{/js/work.js}"></script>
+
 </body>
 
 </html>

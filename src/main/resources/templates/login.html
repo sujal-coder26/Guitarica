@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
+
     <title th:text="${title}"> Title </title>
 </head>
 <body class="loginbody">
@@ -17,20 +18,29 @@
         Invalid username and password
     </div>
 
-    <div th:if="${param.logout}" class="alert alert-danger">
+    <div th:if="${param.logout}" class="alert alert-success">
         You have been log out
     </div>
+
+    <div th:if="${param.changed}" class="alert alert-success">
+        <p th:text="${param.changed}"> </p>
+    </div>
     <form class="login" th:action="@{/login}" method="post">
-        <label>
-            <input name="email" type="text" placeholder="Username...">
+        <label class="loginlabel">
+            <input class="loginInput" name="email" type="text" placeholder="Username...">
         </label>
-        <label>
-            <input name="password" type="password" placeholder="Password...">
+        <label class="loginlabel">
+            <input class="loginInput" name="password" type="password" placeholder="Password...">
         </label>
-        <p>
-            <input type="submit" value="Login" />
-        </p>
+        <div class="loginpagebuttons">
+            <button type="submit" value="Login"><a>Login</a></button>
         <button><a th:href="@{/signup}">Signup</a></button>
+        </div>
+
+        <div class="forgotpassworddiv" >
+            <a class="forgotpasswordlink" th:href="@{/forgot}"> Forgot Password?</a>
+        </div>
+
     </form>
 </section>
 
