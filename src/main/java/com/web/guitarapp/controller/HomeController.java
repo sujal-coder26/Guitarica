@@ -60,7 +60,7 @@ public class HomeController {
 
     } catch (Exception e) {
       log.error("Exception occurred: ", e);
-      model.addAttribute("user", user);
+      model.addAttribute("usaaaaaaaaaer", user);
       httpSession.setAttribute(
           "message", new Message("Server Error!!! " + e.getMessage(), "alert-danger"));
       return REGISTRATION;
