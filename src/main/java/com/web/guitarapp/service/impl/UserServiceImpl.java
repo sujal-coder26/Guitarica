@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
   public void save(User user) {
     user.setRole("USER");
     user.setEnabled(true);
-    user.setImageurl("image1.png");
+    user.setImageUrl("image1.png");
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     userRepository.save(user);
   }
