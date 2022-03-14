@@ -7,23 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "BEGINNER_COURSE")
+@Table(name = "COURSES")
 @Getter
 @Setter
-
-public class BeginnerCourse {
+@RequiredArgsConstructor
+public class Courses {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int beginnerCourseId;
+  private int course_id;
 
   @Column
-  private String status;
+  private String course_name;
 
   @Column
-  private int currentBeginnerLevel;
+  private int weightage;
 
 }

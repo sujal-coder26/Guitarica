@@ -15,27 +15,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "COURSE_TRACKER")
+@Table(name = "TRACKER")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseTracker {
+public class Tracker {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private int courseId;
+    @Column
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int tracker_id;
 
-  @Column
-  private String courseName;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id", referencedColumnName = "course_id")
+    private Courses course_id;
 
-  @Column
-  private String courseLevel;
+    @Column
+    private int course_level;
 
-  @Column
-  private String courseRegistered;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user_id;
 
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "user_id", referencedColumnName = "id")
-  private User user;
+
 }

@@ -1,0 +1,377 @@
+.beginnerlevelbody {
+    background: white;
+    font-family: "Raleway", sans-serif;
+}
+.lessons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    height: 100%;
+}
+.lesson-body {
+    position: relative;
+    padding: 10px;
+    margin: 0px;
+    border-top: 1px solid #ddd;
+    height: calc(150% - 50px);
+}
+.lesson-body > div {
+    position: absolute;
+    opacity: 0;
+    top: -100%;
+    transform: translateY(-10px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+.lesson-body > div.active {
+    transform: translateY(0px);
+    top: 50px;
+    opacity: 1;
+}
+.majorheading {
+    position: relative;
+    top: -33px;
+    left: 95px;
+    margin-bottom: 10px;
+    color: #7c795d;
+    font-family: "Trocchi", serif;
+    font-weight: normal;
+}
+.lesson-body p {
+    color: #4c4a37;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    margin: 20px;
+}
+.lesson-parts {
+    display: flex;
+    margin: 20px;
+    margin-left: 500px;
+}
+.lesson-part {
+    border-radius: 50%;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border: solid 2px white;
+    background: #a1d6cf;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 44px;
+    cursor: pointer;
+}
+.lesson-part-inside {
+    border-radius: 50%;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border: solid 2px white;
+    background: darkcyan;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -20px;
+    left: 15px;
+}
+
+.lesson-part:not(:first-of-type)::before {
+    height: 2px;
+    width: 50px;
+    content: "";
+    background-color: #a1d6cf;
+    position: absolute;
+    left: -50px;
+}
+
+.lesson-part.active {
+    background: darkcyan;
+    color: white;
+}
+
+.lesson-part.active:not(:first-of-type)::before {
+    background: darkcyan;
+    color: white;
+}
+
+/* slideshow starts */
+.chordslideshow {
+    position: absolute;
+    left: 900px;
+    top: 30px;
+}
+.chordslideshow img {
+    height: 450px;
+    width: 500px;
+}
+.minorchordslideshow {
+    position: absolute;
+    left: 900px;
+    top: 570px;
+}
+.minorchordslideshow img {
+    height: 450px;
+    width: 500px;
+}
+.chordssleft {
+    font-size: 50px;
+    opacity: 0.2;
+    cursor: pointer;
+    position: absolute;
+    left: 1000px;
+    top: 470px;
+    width: 70px;
+    height: 70px;
+}
+.chordssleft:hover {
+    transition: 0.5s;
+    box-shadow: 3px 3px darkcyan;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0.7, 0.7);
+}
+.chordssright {
+    font-size: 50px;
+    opacity: 0.2;
+    cursor: pointer;
+    color: black;
+    position: absolute;
+    left: 1250px;
+    top: 470px;
+    width: 70px;
+    height: 70px;
+}
+.chordssright:hover {
+    transition: 0.5s;
+    box-shadow: 5px 5px 3px darkcyan;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0.7, 0.7);
+}
+.minorchordssleft {
+    font-size: 50px;
+    opacity: 0.2;
+    cursor: pointer;
+    position: absolute;
+    left: 1000px;
+    top: 1050px;
+    width: 70px;
+    height: 70px;
+}
+.minorchordssleft:hover {
+    transition: 0.5s;
+    box-shadow: 3px 3px darkcyan;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0.7, 0.7);
+}
+.minorchordssright {
+    font-size: 50px;
+    opacity: 0.2;
+    cursor: pointer;
+    color: black;
+    position: absolute;
+    left: 1250px;
+    top: 1050px;
+    width: 70px;
+    height: 70px;
+}
+.minorchordssright:hover {
+    transition: 0.5s;
+    box-shadow: 5px 5px 3px darkcyan;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(0.7, 0.7);
+}
+
+/*Beginner Level css*/
+
+.stringNames {
+    position: absolute;
+    top: 60px;
+    left: 1000px;
+}
+.stringnamesparagraph {
+    width: 650px;
+    position: absolute;
+    top: 320px;
+    left: 800px;
+}
+.chordslearn {
+    width: 800px;
+}
+.guitarbasic {
+    width: 600px;
+}
+.logoutuser {
+    background-color: darkcyan;
+    border: none;
+    position: absolute;
+    top:20px;
+    left:1300px;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+}
+.next {
+    background-color: darkcyan;
+    border: none;
+    position: absolute;
+    top:1400px;
+    left:1300px;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+}
+.whichlevel {
+    position: absolute;
+    top: 8px;
+    left: 130px;
+    color: #7c795d;
+    font-family: "cursive", Lucida Handwriting;
+    font-weight: bold;
+}
+.toplogo{
+    position: absolute;
+    top:5px;
+    left: 10px;
+}
+.signuphome, .nextlesson  {
+    text-decoration: none;
+    color: white;
+
+}
+.startbeginnerlevel {
+    background-color: darkcyan;
+    border: none;
+    position: absolute;
+    top:1200px;
+    left:1200px;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+}
+.chordsheading2 {
+    position: relative;
+    top: 50px;
+    margin-bottom: 10px;
+    color: #7c795d;
+    font-family: "Trocchi", serif;
+    font-weight: normal;
+}
+.waystolearnchords {
+    margin-top: 100px;
+    padding: 0;
+    list-style-type: none;
+    line-height: 40px;
+}
+
+.waystolearnchords li {
+    counter-increment: step-counter;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.waystolearnchords li::before {
+    content: counter(step-counter);
+    margin-right: 5px;
+    font-size: 30px;
+    background-color: darkcyan;
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+}
+
+
+
+.strummingpatternslist li {
+    list-style-type: circle;
+    padding-left: 45px;
+    margin-right: 5px;
+    font-size: 20px;
+    color: black;
+    padding: 3px 8px;
+    position: relative;
+    top: 50px;
+}
+.strummingpatternslist {
+    width: 800px;
+}
+.guitarpartsp {
+    width: 950px;
+    position: absolute;
+    top: 750px;
+    left: 400px;
+}
+.strummingimg {
+    position: absolute;
+    top: 750px;
+    left: 700px;
+}
+.guitartabimage {
+    position: absolute;
+    top: 50px;
+}
+.guitartabnumber {
+    position: absolute;
+    top: 260px;
+    left: 840px;
+}
+.tabsample {
+    position: absolute;
+    top: 800px;
+}
+.tablearn1 {
+    position: relative;
+    width: 700px;
+    left: 800px;
+}
+.tablearn2 {
+    position: relative;
+    width: 750px;
+    top: 50px;
+}
+.tabchord {
+    position: absolute;
+    top: 500px;
+    left: 770px;
+}
+.tabguide {
+    width: 599px;
+    position: absolute;
+    top: 770px;
+    left: 900px;
+}
+.tabguideheding {
+    color: #7c795d;
+    font-family: "Trocchi", serif;
+    font-weight: normal;
+    width: 300px;
+    position: absolute;
+    top: 700px;
+    left: 920px;
+}
+.firstsongchord {
+    margin-right: 100px;
+}
+.firstsongtab {
+    margin-right: 100px;
+    margin-top: 40px;
+}
