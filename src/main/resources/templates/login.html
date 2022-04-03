@@ -25,6 +25,7 @@
     <div th:if="${param.changed}" class="alert alert-success">
         <p th:text="${param.changed}"> </p>
     </div>
+
     <form class="login" th:action="@{/login}" method="post">
         <label class="loginlabel">
             <input class="loginInput" name="email" type="text" placeholder="Username...">

@@ -10,24 +10,23 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
             rel="stylesheet"
     />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+            integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="work.css" />
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
     <title th:text="${title}"> Title </title>
 </head>
-<body class="main-body">
-<nav class="menu-activea">
-    <h1>MENU</h1>
-    <ul>
-        <li>HOME</li>
-        <li>COURSES</li>
-        <li>TUNER</li>
-        <li>SERVICES</li>
-        <li>ABOUT</li>
-        <li>LOGIn</li>
-        <li>FAQ</li>
-    </ul>
-</nav>
-<main>
+<body id="homeMain">
+
+<main >
     <div>
         <ol class="content">
             <li class="content__item">
@@ -47,8 +46,18 @@
     </section>
 
     </main>
+<div class="navbar">
+    <ul class="nav">
+        <li><a class="navbara" href="#homeMain">Home</a></li>
+        <li><a class="navbara" href="#reviews">Reviews</a></li>
+        <li><a class="navbara" href="#briefing">About</a></li>
+        <li><a class="navbara" href="#contactbody">Contact</a></li>
+    </ul>
+</div>
 <div th:replace="review :: reviews"></div>
-<script src="" th:src="@{/js/work.js}"></script>
+<div th:replace="briefing :: briefing"></div>
+<div th:replace="contactus :: contactus"></div>
+<div src="" th:src="@{/js/work.js}"></div>
 
 </body>
 

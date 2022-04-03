@@ -20,23 +20,31 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Tracker {
 
-    @Column
+    @Column(name = "tracker_id")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tracker_id;
+    private int trackerId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "course_id", referencedColumnName = "course_id")
-    private Courses course_id;
+    private Course courseId;
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User userId;
+
+    @Column(name = "sub_level")
+    private int subLevel;
 
     @Column
-    private int course_level;
+    private String status;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user_id;
-
-
+    public Tracker(Course courseId, User userId, int subLevel, String status) {
+        this.courseId = courseId;
+        this.userId = userId;
+        this.subLevel = subLevel;
+        this.status = status;
+    }
 }

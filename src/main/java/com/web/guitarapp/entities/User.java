@@ -2,12 +2,7 @@ package com.web.guitarapp.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -51,6 +46,7 @@ public class User implements Serializable {
   @NotBlank(message = "About field can't be empty")
   private String about;
 
+  @Column(nullable = true, length = 64)
   private String imageUrl;
 
   @Override
@@ -64,6 +60,11 @@ public class User implements Serializable {
     User user = (User) o;
     return id != null && Objects.equals(id, user.id);
   }
+//@Transient
+//public String getPhotosPath(){
+//    if (imageUrl == null || id == null);
+//      return "/user-photos/" + id + "/" + imageUrl;
+//}
 
   @Override
   public int hashCode() {

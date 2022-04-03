@@ -4,5 +4,5 @@ import com.web.guitarapp.entities.User;
 
 public interface UserService {
 
-    void save(User user);
+    User save(User user);
 }

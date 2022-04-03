@@ -1,24 +1,32 @@
 package com.web.guitarapp.controller;
 
-import com.web.guitarapp.dao.CourseTrackerRepository;
+import com.web.guitarapp.dao.TrackerRepository;
 import com.web.guitarapp.dao.UserRepository;
+import com.web.guitarapp.entities.Course;
+import com.web.guitarapp.entities.Tracker;
 import com.web.guitarapp.entities.User;
 import com.web.guitarapp.exception.ApiException;
 import com.web.guitarapp.helper.Message;
+import com.web.guitarapp.service.TrackerService;
 import com.web.guitarapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.persistence.EntityManager;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
+import java.io.IOException;
 import java.security.Principal;
-import java.sql.ResultSet;
 
 import static com.web.guitarapp.util.Constants.*;
 
@@ -28,11 +36,15 @@ import static com.web.guitarapp.util.Constants.*;
 public class HomeController {
 
   private final UserService userService;
-  @Autowired
-  private UserRepository userRepository;
 
-  @Autowired
-  private CourseTrackerRepository courseTrackerRepository;
+  private final TrackerService trackerService;
+
+  private final UserRepository userRepository;
+
+  private final TrackerRepository trackerRepository;
+
+  private final JavaMailSender mailSender;
+
   @RequestMapping("/")
   public String base(Model model) {
     model.addAttribute(TITLE, "Home - Guitarica");
@@ -64,6 +76,7 @@ public class HomeController {
         return REGISTRATION;
       }
       userService.save(user);
+
       model.addAttribute("user", new User());
       httpSession.setAttribute("message", new Message("Successfully Signed Up", "alert-success"));
       return LOGIN;
@@ -94,22 +107,49 @@ public class HomeController {
     String username = principal.getName();
     System.out.println("Username: " + username);
     User user = userRepository.getUserByUserName(username);
-    System.out.println(user);
-
+    Course course = new Course(1,"Beginner",1);
+    Tracker tracker = new Tracker(course, user, 1, "ACTIVE");
+    trackerService.save(tracker);
     model.addAttribute("user", user);
+    model.addAttribute("tracker", tracker);
     return "dashboard";
   }
+//  @PostMapping("/imagesave")
+//  public RedirectView imageSave(Principal principal,
+//@RequestParam("image") MultipartFile multipartFile) throws IOException{
+//    String username = principal.getName();
+//    String imageName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//    User user = userRepository.getUserByUserName(username);
+//    user.setImageUrl(imageName);
+//    this.userRepository.save(user);
+//    String uploadDirectory = "user-photos/" + this.userRepository.save(user).getId();
+//    FileUploadUtil.saveFile(uploadDirectory, imageName, multipartFile);
+//    return new RedirectView("/dashboard", true);
+
+//  }
   @GetMapping("/beginnerLevel")
-  public String beginnerLevel( ){
-    Object info = courseTrackerRepository.getUserLevel(1);
-    System.out.println(info);
+  public String beginnerLevel(){
+
+
     return "BeginnerLevel";
+
+  }
+
+  @PostMapping("/dashbaord/imageUpload")
+  public RedirectView saveUser(User user, @RequestParam("image")MultipartFile multipartFile) throws IOException
+  {
+    String nameOfFile = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+    user.setImageUrl(nameOfFile);
+    User savedUser = userRepository.save(user);
+    String uploadDirectory = "user-photos/" + savedUser.getId();
+    return new RedirectView("/dashboard", true);
   }
 
   @GetMapping("/guitartuner")
   public String guitartuner(){
     return "tuner";
   }
+
   @GetMapping("/intermediateLevel")
   public String intermediateLevel(){
     return "IntermediateLevel";
@@ -119,9 +159,35 @@ public class HomeController {
   public String advanceLevel(){
     return "AdvanceLevel";
   }
+
   @GetMapping("/completed")
   public String completed(){
     return "certificate";
+  }
+
+  @PostMapping("/sendContact")
+  public String sendContact(HttpServletRequest request){
+    String name = request.getParameter("name");
+    String email = request.getParameter("email");
+    String subject = request.getParameter("subject");
+    String message = request.getParameter("message");
+
+    SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+    simpleMailMessage.setFrom("praweshgautam26@gmail.com");
+    simpleMailMessage.setTo("guitarica99@gmail.com");
+
+    String subjectOfMail = name + " has sent a message";
+    String contentOfMail = "Sender Name: " + name +"\n";
+    contentOfMail += "Sender Email: " + email + "\n";
+    contentOfMail += "Subject: " + subject+ "\n";
+    contentOfMail += "Message: " + message+ "\n";
+
+    simpleMailMessage.setSubject(subjectOfMail);
+    simpleMailMessage.setText(contentOfMail);
+
+    mailSender.send(simpleMailMessage);
+
+    return "contactMessage";
   }
   }
 

@@ -10,8 +10,11 @@
 <body>
 <div class="descriptionuser">
     <h1 class="userpageheading">
-        Hello <span th:text="${user.username}"></span>,<span style="font-size: 40px">&#128516;</span> Welcome to
-        the Guitarica Guitar Lesson!
+        Hello <span th:text="${user.username}"></span>,<span
+            style="font-size: 40px"
+    >&#128516;</span
+    >
+        Welcome to the Guitarica Guitar Lesson!
     </h1>
 
     <h1 class="userpageheading">
@@ -37,25 +40,63 @@
             future.
         </li>
     </ol>
+    <div class="buttonsdashboard">
+        <button class="startbeginnerlevel">
+          <span>
+            <a href="#" th:form th:href="@{/guitartuner}"> Tuner </a></span
+          >
+        </button>
+        <button class="startbeginnerlevel">
+          <span>
+            <a href="#" th:form th:href="@{/beginnerLevel}">
+              Let's start
+            </a>
+          </span>
 
-    <button class="startbeginnerlevel"> <span> <a href="#" th:form th:href="@{/beginnerLevel}"> Beginner Level - Let's start </a></span></button>
-    <button> <span> <a href="#" th:form th:href="@{/guitartuner}">  Tuner </a></span></button>
+        </button>
+    </div>
 </div>
-<div class="userprofile">
-
-
+<!--<form th:action="@{/imagesave}"-->
+<!--      th:object="${user}" method="post"-->
+<!--      enctype="multipart/form-data" >-->
+<!--<div class="userprofile">-->
+<!--    <div class="card">-->
+<!--        <img class="imageprofile" src="../static/Image/profile.png"-->
+<!--             th:src="/@{${user.photosPath}}" width="300" height="280" />-->
+<!--        <h1>John Doe</h1>-->
+<!--        <p class="title">CEO & Founder, Example</p>-->
+<!--        <p>Harvard University</p>-->
+<!--    </div>-->
+<!--    <input class="changeprofile" type="file" name="profileImage" accept="image/png , image/jpg">-->
+<!--</form>-->
     <div class="progressbars">
-    <div role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="--value: 75"></div>
-    <div role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="--value: 50"></div>
-    <div role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="--value: 25"></div>
+        <div
+                role="progressbar"
+                aria-valuenow="67"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="--value: 75"
+        ></div>
+        <div
+                role="progressbar"
+                aria-valuenow="67"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="--value: 50"
+        ></div>
+        <div
+                role="progressbar"
+                aria-valuenow="67"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="--value: 25"
+        ></div>
     </div>
     <div class="progresstitle">
         <h1>Beginner Level</h1>
         <h1>Intermediate Level</h1>
         <h1>Advance Level</h1>
-
     </div>
-
 </div>
 <style>
     .descriptionOfPage {
@@ -63,17 +104,16 @@
         padding: 0;
         list-style-type: none;
     }
-    .descriptionuser a{
+    .descriptionuser a {
         text-decoration: none;
         color: white;
-
     }
     .progresstitle {
         position: absolute;
-        top:450px;
-        left:1000px;
+        top: 600px;
+        left: 1000px;
     }
-    .progresstitle h1{
+    .progresstitle h1 {
         display: inline-flex;
         font-family: "cursive", Lucida Handwriting;
         position: relative;
@@ -93,10 +133,10 @@
         padding: 3px 8px;
         border-radius: 3px;
     }
-    .progressbars{
+    .progressbars {
         display: inline-flex;
         position: absolute;
-        top: 500px;
+        top: 650px;
         left: 1200px;
     }
 
@@ -110,16 +150,22 @@
         margin-top: 150px;
     }
     .startbeginnerlevel {
+        display: inline-flex;
         background-color: darkcyan;
         border: none;
         color: white;
         padding: 15px 30px;
         text-decoration: none;
-        display: inline-block;
         text-align: center;
-        margin: 20px 520px;
+        margin: 20px 50px;
         font-size: 22px;
         cursor: pointer;
+        border-radius: 5%;
+    }
+    .buttonsdashboard {
+        display: flex;
+        flex-direction: row;
+        margin-left: 200px;
     }
     .userpageheading {
         position: relative;
@@ -138,7 +184,7 @@
         }
     }
     @property --percentage {
-        syntax: '<number>';
+        syntax: "<number>";
         inherits: true;
         initial-value: 0;
     }
@@ -183,6 +229,26 @@
         color: var(--primary);
     }
 
+    .card {
+        margin: auto;
+        text-align: center;
+        position: absolute;
+        top: 100px;
+        left: 1400px;
+    }
+
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+    .imageprofile {
+        border-radius: 50%;
+    }
+    .changeprofile {
+        position: absolute;
+        top: 400px;
+        left: 1700px;
+    }
 </style>
 </body>
 </html>

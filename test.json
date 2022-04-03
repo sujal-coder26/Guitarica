@@ -1,0 +1,21 @@
+{
+  "trackerId": 2,
+  "courseId": {
+    "courseId": 1,
+    "courseName": "Beginner ",
+    "weightage": 1
+  },
+  "userId": {
+    "id": 1,
+    "password": "$2a$10$0VinHPaU1LSPis.pVwkEX.5swTn61jIxqDA1txwoEPEOGX.4Xp7/m",
+    "username": "Sujal Gautam",
+    "email": "sujalgautam26@gmail.com",
+    "phoneNumber": null,
+    "enabled": true,
+    "role": "USER",
+    "about": "I am a programmer",
+    "imageUrl": "image1.png"
+  },
+  "subLevel": 2,
+  "status": "ACTIVE"
+}

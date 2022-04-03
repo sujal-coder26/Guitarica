@@ -18,11 +18,12 @@ public class UserServiceImpl implements UserService {
   private final UserRepository userRepository;
 
   @Override
-  public void save(User user) {
+  public User save(User user) {
     user.setRole("USER");
     user.setEnabled(true);
     user.setImageUrl("image1.png");
     user.setPassword(passwordEncoder.encode(user.getPassword()));
-    userRepository.save(user);
+    return userRepository.save(user);
+
   }
 }

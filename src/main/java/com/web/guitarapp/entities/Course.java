@@ -6,23 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 
 @Entity
 @Table(name = "COURSES")
-@Getter
-@Setter
-@RequiredArgsConstructor
-public class Courses {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Course {
 
   @Id
+  @Column(name = "course_id")
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int course_id;
+  private int courseId;
 
-  @Column
-  private String course_name;
+  @Column(name = "course_name")
+  private String courseName;
 
   @Column
   private int weightage;
