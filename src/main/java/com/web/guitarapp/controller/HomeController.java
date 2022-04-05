@@ -27,6 +27,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Optional;
 
 import static com.web.guitarapp.util.Constants.*;
 
@@ -55,6 +56,7 @@ public class HomeController {
   public String signup(Model model) {
     model.addAttribute(TITLE, "SignUp - Guitarica");
     model.addAttribute("user", new User());
+
     return REGISTRATION;
   }
 
@@ -76,6 +78,9 @@ public class HomeController {
         return REGISTRATION;
       }
       userService.save(user);
+      Course course = new Course(1,"Beginner",1);
+      Tracker tracker = new Tracker(course, user, 1, "ACTIVE");
+      trackerService.save(tracker);
 
       model.addAttribute("user", new User());
       httpSession.setAttribute("message", new Message("Successfully Signed Up", "alert-success"));
@@ -107,11 +112,7 @@ public class HomeController {
     String username = principal.getName();
     System.out.println("Username: " + username);
     User user = userRepository.getUserByUserName(username);
-    Course course = new Course(1,"Beginner",1);
-    Tracker tracker = new Tracker(course, user, 1, "ACTIVE");
-    trackerService.save(tracker);
     model.addAttribute("user", user);
-    model.addAttribute("tracker", tracker);
     return "dashboard";
   }
 //  @PostMapping("/imagesave")
@@ -128,9 +129,14 @@ public class HomeController {
 
 //  }
   @GetMapping("/beginnerLevel")
-  public String beginnerLevel(){
+  public String beginnerLevel(Model model, Principal principal){
+    String username = principal.getName();
+    User user = userRepository.getUserByUserName(username);
+    Optional<Tracker> optionalTracker = trackerRepository.findByUserIdAndStatus(user, "ACTIVE");
 
-
+    int sub_level = optionalTracker.get().getSubLevel();
+    System.out.println(sub_level);
+    model.addAttribute("sublevel", sub_level);
     return "BeginnerLevel";
 
   }
@@ -144,6 +150,7 @@ public class HomeController {
     String uploadDirectory = "user-photos/" + savedUser.getId();
     return new RedirectView("/dashboard", true);
   }
+
 
   @GetMapping("/guitartuner")
   public String guitartuner(){
