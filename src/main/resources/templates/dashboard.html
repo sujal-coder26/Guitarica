@@ -56,19 +56,16 @@
         </button>
     </div>
 </div>
-<!--<form th:action="@{/imagesave}"-->
-<!--      th:object="${user}" method="post"-->
-<!--      enctype="multipart/form-data" >-->
-<!--<div class="userprofile">-->
-<!--    <div class="card">-->
-<!--        <img class="imageprofile" src="../static/Image/profile.png"-->
-<!--             th:src="/@{${user.photosPath}}" width="300" height="280" />-->
-<!--        <h1>John Doe</h1>-->
-<!--        <p class="title">CEO & Founder, Example</p>-->
-<!--        <p>Harvard University</p>-->
-<!--    </div>-->
-<!--    <input class="changeprofile" type="file" name="profileImage" accept="image/png , image/jpg">-->
-<!--</form>-->
+
+<div class="userprofile">
+    <div class="card">
+        <img class="imageprofile"
+             th:src="@{${user.photosPath}}" width="280" height="280" />
+        <h1><span th:text="${user.username}"></span></h1>
+        <p><span th:text="${user.email}"> </span></p>
+        <p class="title"><span th:text="${user.about}"></span></p>
+    </div>
+
     <div class="progressbars">
         <div
                 role="progressbar"

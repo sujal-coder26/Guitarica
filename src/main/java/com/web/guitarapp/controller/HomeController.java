@@ -6,6 +6,7 @@ import com.web.guitarapp.entities.Course;
 import com.web.guitarapp.entities.Tracker;
 import com.web.guitarapp.entities.User;
 import com.web.guitarapp.exception.ApiException;
+import com.web.guitarapp.helper.FileUploadUtil;
 import com.web.guitarapp.helper.Message;
 import com.web.guitarapp.service.TrackerService;
 import com.web.guitarapp.service.UserService;
@@ -62,7 +63,7 @@ public class HomeController {
 
   @PostMapping(value = "/doRegister")
   public String signupUser(
-      @Valid @ModelAttribute("user") User user,
+      @Valid @ModelAttribute("user")@RequestParam("image_url") MultipartFile multipartFile, User user,
       BindingResult result,
       @RequestParam(value = "agreement") boolean agreement,
       Model model,
@@ -77,7 +78,11 @@ public class HomeController {
         model.addAttribute("user", user);
         return REGISTRATION;
       }
+      String imageName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+      user.setImageUrl(imageName);
       userService.save(user);
+      String imageDir = "user-images/" + user.getId();
+      FileUploadUtil.saveFile(imageDir, imageName, multipartFile);
       Course course = new Course(1,"Beginner",1);
       Tracker tracker = new Tracker(course, user, 1, "ACTIVE");
       trackerService.save(tracker);
@@ -115,19 +120,7 @@ public class HomeController {
     model.addAttribute("user", user);
     return "dashboard";
   }
-//  @PostMapping("/imagesave")
-//  public RedirectView imageSave(Principal principal,
-//@RequestParam("image") MultipartFile multipartFile) throws IOException{
-//    String username = principal.getName();
-//    String imageName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-//    User user = userRepository.getUserByUserName(username);
-//    user.setImageUrl(imageName);
-//    this.userRepository.save(user);
-//    String uploadDirectory = "user-photos/" + this.userRepository.save(user).getId();
-//    FileUploadUtil.saveFile(uploadDirectory, imageName, multipartFile);
-//    return new RedirectView("/dashboard", true);
 
-//  }
   @GetMapping("/beginnerLevel")
   public String beginnerLevel(Model model, Principal principal){
     String username = principal.getName();

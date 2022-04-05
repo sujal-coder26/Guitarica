@@ -60,11 +60,11 @@ public class User implements Serializable {
     User user = (User) o;
     return id != null && Objects.equals(id, user.id);
   }
-//@Transient
-//public String getPhotosPath(){
-//    if (imageUrl == null || id == null);
-//      return "/user-photos/" + id + "/" + imageUrl;
-//}
+@Transient
+public String getPhotosPath(){
+    if (imageUrl == null || id == null);
+      return "/user-images/" + id + "/" + imageUrl;
+}
 
   @Override
   public int hashCode() {

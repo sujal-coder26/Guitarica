@@ -16,19 +16,19 @@ public class MvcConfig implements WebMvcConfigurer {
     registry.addViewController("/login").setViewName("login");
   }
 
-//  @Override
-//  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//      exposeDir("user-photos", registry);
-//  }
-//
-//  private void exposeDir(String dirName, ResourceHandlerRegistry registry) {
-//    Path uploadDir = Paths.get(dirName);
-//    String uploadPath = uploadDir.toFile().getAbsolutePath();
-//
-//    if (dirName.startsWith("../")) dirName = dirName.replace("../", "");
-//
-//    registry
-//        .addResourceHandler("/" + dirName + "/**")
-//        .addResourceLocations("file:/" + uploadPath + "/");
-//  }
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+      exposeDir("user-images", registry);
+  }
+
+  private void exposeDir(String directoryName, ResourceHandlerRegistry registry) {
+    Path uploadDirectory = Paths.get(directoryName);
+    String uploadPath = uploadDirectory.toFile().getAbsolutePath();
+
+    if (directoryName.startsWith("../")) directoryName = directoryName.replace("../", "");
+
+    registry
+        .addResourceHandler("/" + directoryName + "/**")
+        .addResourceLocations("file:/" + uploadPath + "/");
+  }
 }
