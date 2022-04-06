@@ -134,17 +134,6 @@ public class HomeController {
 
   }
 
-  @PostMapping("/dashbaord/imageUpload")
-  public RedirectView saveUser(User user, @RequestParam("image")MultipartFile multipartFile) throws IOException
-  {
-    String nameOfFile = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-    user.setImageUrl(nameOfFile);
-    User savedUser = userRepository.save(user);
-    String uploadDirectory = "user-photos/" + savedUser.getId();
-    return new RedirectView("/dashboard", true);
-  }
-
-
   @GetMapping("/guitartuner")
   public String guitartuner(){
     return "tuner";

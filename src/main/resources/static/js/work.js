@@ -1,33 +1,11 @@
- (function() {
+ var close = document.getElementsByClassName("closebtn");
+ var i;
 
-  var nav = $('nav'),
-    menu = $('nav h1'),
-    main = $('main'),
-  	open = false,
-  	hover = false;
+ for (i = 0; i < close.length; i++) {
+     close[i].onclick = function(){
+         var div = this.parentElement;
+         div.style.opacity = "0";
+         setTimeout(function(){ div.style.display = "none"; }, 600);
 
-  menu.on('click', function() {
-		open = !open ? true : false;
-    nav.toggleClass('menu-active');
-    main.toggleClass('menu-active');
-    nav.removeClass('menu-hover');
-    main.removeClass('menu-hover');
-    console.log(open);
-  });
-  menu.hover( 
-    function() {
-      if (!open) {
-      	nav.addClass('menu-hover');
-      	main.addClass('menu-hover');
-      }
-    }, function() {
-      nav.removeClass('menu-hover');
-      main.removeClass('menu-hover');
-    }
-  );
-
-})();
-
-
-
-    
+     }
+ }

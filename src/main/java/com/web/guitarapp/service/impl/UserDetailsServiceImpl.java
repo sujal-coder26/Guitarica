@@ -10,12 +10,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Slf4j
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService { //making the class that implements the following interface
 
-  @Autowired private UserRepository userRepository;
+  @Autowired private UserRepository userRepository; // declaring the object
 
   @Override
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException { // overriding the method which will have the
 
     User user = userRepository.getUserByUserName(username);
 

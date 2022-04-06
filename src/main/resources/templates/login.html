@@ -14,16 +14,31 @@
         <img class="guitaricalogo" src="../static/Image/guitarica.jpg" width="100"
              th:src="@{Image/guitarica.jpg}"/>
     </div>
-    <div th:if="${param.error}" class="alert alert-danger">
-        Invalid username and password
+<!--    <div th:if="${param.error}" >-->
+
+<!--        Invalid username and password-->
+<!--    </div>-->
+
+<!--    <div th:if="${param.logout}" >-->
+<!--        You have been log out-->
+<!--    </div>-->
+
+<!--    <div th:if="${param.changed}">-->
+<!--        <p th:text="${param.changed}"> </p>-->
+<!--    </div>-->
+    <div class="alert" th:if="${param.error}">
+        <span class="closebtn">&times;</span>
+        <strong>Oppps!</strong> Username of Password didn't match.
     </div>
 
-    <div th:if="${param.logout}" class="alert alert-success">
-        You have been log out
+    <div class="alert success" th:if="${param.logout}">
+        <span class="closebtn">&times;</span>
+        <strong>You have been Logout.</strong>
     </div>
 
-    <div th:if="${param.changed}" class="alert alert-success">
-        <p th:text="${param.changed}"> </p>
+    <div th:if="${param.changed}" class="alert info" >
+        <span class="closebtn">&times;</span>
+        <strong>Success!</strong> Password has been changed.
     </div>
 
     <form class="login" th:action="@{/login}" method="post">
@@ -44,6 +59,8 @@
 
     </form>
 </section>
+
+<script src="" th:src="@{/js/work.js}"></script>
 
 </body>
 </html>
