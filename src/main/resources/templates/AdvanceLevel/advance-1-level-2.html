@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:fragment="level2">
+<button class="next">
+    <span> <a class="nextlesson" href="#" th:href="@{/nextLevelAdvance}"> Next-> </a></span>
+</button>
+<div>
+    <div class="advance-lesson-part-inside">2</div>
+    <h1 class="advancemajorheading">Keys</h1>
+    <p>
+        The key of a song is a quick way to figure out what chords and notes
+        the song is built around. The notes and chords utilized in a song in
+        the key of C will be based on the C Major Scale. The notes and
+        chords of a song in the key of D would be based on the D Major
+        Scale.This can be confusing at first. If a song is in the key of C,
+        it means there are no sharp or flat notes (take a look at the C
+        Major Scale to learn more). But just because the song is in the key
+        of C, it doesn’t mean it must stick to those notes. The song can
+        easily make use of notes and chords outside of the key. At first,
+        this might be perplexing. When a song is written in the key of C,
+        there are no sharp or flat notes (take a look at the C Major Scale
+        to learn more). However, just because the music is in the key of C
+        doesn't imply it has to stay in that key. Outside of the key, the
+        song may easily employ notes and chords.
+    </p>
+    <img src="../static/Image/keychart.jpg"
+         th:src="@{Image/keychart.jpg}" alt="" />
+    <img class="keychart2" src="../static/Image/keychart2.jpg"
+         th:src="@{Image/keychart2.jpg}" alt="" />
+    <p class="findingkey">
+        So, There are two ways of finding the keys of the song.
+        <b>First is by looking at the tabs.</b> Not all songs has tabs. So
+        this is only used when you see the tab chart. In the chart there is
+        a indicator for # and b. So, just by seeing the number of sharp,
+        flats from the chart we can identify the key of the song. If there
+        is only one # symbol in the tab chart then we can say that the key
+        of the song is G major/E minor. If it has 1 flat symbol then the
+        song is in the key of F. You will understand more by looking at the
+        image above
+    </p>
+    <p>
+        <b>The 2nd way is by looking at the chords used.</b>
+        See the chart above. The 1st column shows the Keys as major scales.
+        'C' means the 'key of C' or 'C Major Scale'. Each rows refers to the
+        note used in that scale and the bottom row shows the type.
+        <br />
+        Suppose, A song has these following chords: G Major, A minor, B
+        minor, Eminor, F# diminished. So, by comparing from the chart we
+        conclude that the song is in the key of 'G' as all the chords of G
+        scale are used in the song.The best technique to figure out what key
+        a song is in is to look at all of the chords and match them to all
+        of the potential keys.
+    </p>
+</div>
+</body>
+</html>

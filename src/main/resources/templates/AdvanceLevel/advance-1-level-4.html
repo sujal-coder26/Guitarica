@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:fragment="level4">
+<button class="next">
+    <span> <a class="nextlesson" href="#" th:href="@{/nextLevelAdvance}"> Next-> </a></span>
+</button>
+<div>
+    <div class="advance-lesson-part-inside">4</div>
+    <h1 class="advancemajorheading">Circle of Fifths</h1>
+
+    <img
+            class="circleoffifths"
+            src="../static/Image/Circle of Fifths.jpg"
+            th:src="@{Image/Circle of Fifths.jpg}"
+            alt=""
+            width="650"
+            height="600"
+    />
+    <p class="circleoffifthsp">
+        The circle of fifths is a chart that shows you how to get around the
+        twelve musical keys. The circle of fifths may appear to be a boring
+        music theory lesson, yet it is one of the most important ideas to
+        understand in music. It will assist you in remembering key
+        signatures, locating yourself on your instrument, and releasing your
+        creativity via chords and progressions. With such a practical
+        notion, it helps to have some previous knowledge. But that doesn't
+        imply it has to be tough or perplexing. In truth, all you really
+        need to know about the circle of fifths is the fundamentals. I'll
+        explain what it is, how it works, and how it can help you compose
+        music in this post.
+        <br />
+        <br />
+        The circle of fifths is a method of visualizing and organizing the
+        twelve musical keys. It's used in music to assist people recall the
+        notes that make up each key and to group keys together based on the
+        notes they have in common. The order of sharps and flats for
+        creating musical scores is determined by following the stages of the
+        circle in order. The circle of fifths gets its name from the fact
+        that each key on the circle is separated by a fifth interval.
+    </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 class="howtotranpose">Major Usages of Circle of Fifths</h1>
+
+    <ol class="waystotranpose">
+        <li>
+            Circle of fifths tells us the number of sharp and flat notes in a
+            scale. If you go clockwise, then the clock number gives you the
+            total number of sharps. You can see above and find that no # is in
+            C and G has 2#. Same goes for flat but you need to move
+            anticlockwise. See above for more clarification.
+        </li>
+        <li>
+            We can know the number of sharps and flats & also we can know what
+            are those sharp and flat notes.For #, Just move clockwise from 11o'clock
+            i.e from 'F'. Let's see for D, when you move from 11 you will find
+            F and C. Hence the 2 sharp notes are F# and C#.
+            <b> You can check in the Advance part 2 (Keys)</b>
+        </li>
+        <li>
+            To know the flat note just move anticlockwise from the 5 o'çlock.
+            Let's see the clock for Bb. Looking above we can see that there
+            are 2 flats. So, let's move from the 5o'clock, i.e Bb and Eb.
+            <b> You can check in the Advance part 2 (Keys)</b>
+        </li>
+        <li>
+            We can also find the chords inside the scale. Lets find the relative chords of scale C. The theory says: the
+            note before and after C will be major. And after the after note,
+            the 3 notes will be minor and then the last one will be
+            diminished. i.e C has: F major, G major, D minor, E minor, A minor
+            and B diminished.
+        </li>
+        <li>
+            Determine how far around the circle you need to traverse to go
+            from the original key to the new key using the Circle of Fifths.
+            It's simply one note from C to G in this situation. Move the
+            preset amount of notes around the circle starting from the initial
+            key's note. As an example, an
+            A in C would be transposed to an E in G.
+        </li>
+        </li>
+    </ol>
+</div>
+</body>
+</html>

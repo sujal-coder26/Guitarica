@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:fragment="level5">
+<button class="next">
+    <span> <a class="nextlesson" href="#" th:href="@{/nextLevelAdvance}"> Next-> </a></span>
+</button>
+<div>
+    <div class="advance-lesson-part-inside">5</div>
+
+    <h1 class="advancemajorheading">Chords Construction</h1>
+    <p>Many chordal artists have a strong understanding of chord building, but many more rely only on memory (or notation) to perform them. While knowing how chords are made and named is beneficial, understanding how chords are formed and named expands your chord knowledge significantly.
+
+        Knowing how chords are built allows you to play chords you've never heard before simply by looking at the name and knowing what it implies. It also lets you change chords using'sound' musical expertise rather than guessing.
+        <br/>
+        <br/>
+        The names of chords are divided into two categories. The first element (also known as the chord's ROOT) is just the name of the note on which the chord is built. The second portion is about the chord's kind (or quality). It can be made up of words, numbers, or both, and it defines how the chord's other notes are chosen to complement the root.
+        <br/>
+        <br/>
+        The first element of the name (the root) of the chord C major 7th is C, while the second component (the type of chord) is major 7th. Similarly The root of the chord F# minor 7th is the note F# (F sharp), while the second portion, minor 7th, is the chord type. The note Bb (B flat) is the root of the chord Bb major, and the chord type or quality is major. We generally skip the prefix major and just call a chord by its fundamental name when it's major, as you undoubtedly know (Bb in this case).
+
+    <h1 class="howtotranpose">How Chords are formed (eg: Major Chords/Minor Chords)</h1>
+    <p class="howchordsformed">1 3 5 is the formula for major chords. That is, if we want to learn how to build a C major chord, we would use the C major scale's first, third, and fifth notes. Similarly, the 1st, 3rd, and 5th notes of the G major scale would be used to construct the chord of G major.
+
+        Let's take a closer look at the C major scale and chord.
+
+        C D E F G A B C
+
+        We get the notes C, E, and G by using our'major chord' formula (1, 3 & 5) to that scale.
+
+        We have the C major chord if we play them all at the same time (or even one after the other). To make the chord seem richer, we might replicate any of the notes. C E G E G C, for example, or any other configuration that our instrument enables.</p>
+    <p>The minor chord formula is 1 b3 (flat 3) 5. The centre note has been dropped, making it comparable to the major chord. In other words, the distance (or interval) between the root and the third in a minor chord is less than in a major chord. The chord is named MINOR because of the interval, which is known as a minor third.
+
+        To obtain the b3rd note required to form the C minor chord, we lower the 3rd note of the C major scale (keeping the same letter name). So, instead of C E & G, we get C Eb (E flat) & G from the major chord formula.
+        <b>There are other chords as well. See below for more information</b></p>
+
+    <img class="cc1" src="../static/Image/chordsConstruction.jpg"
+         th:src="@{Image/chordsConstruction.jpg}" alt="">
+
+    <img class="cc2" src="../static/Image/chordsConstruction2.jpg"
+         th:src="@{Image/chordsConstruction2.jpg}" alt="">
+    <img class="cc3" src="../static/Image/chordsConstruction3.jpg"
+         th:src="@{Image/chordsConstruction3.jpg}" alt="">
+
+    </p>
+</div>
+</body>
+</html>

@@ -43,16 +43,15 @@
     <div class="buttonsdashboard">
         <button class="startbeginnerlevel">
           <span>
-            <a href="#" th:form th:href="@{/guitartuner}"> Tuner </a></span
-          >
+
+            <a href="#" th:href="@{/guitartuner}"> Tuner </a></span>
         </button>
         <button class="startbeginnerlevel">
-          <span>
-            <a href="#" th:form th:href="@{/beginnerLevel}">
-              Let's start
-            </a>
-          </span>
-
+              <div th:switch="${course.weightage}">
+            <a href="#" th:case="1" th:form th:href="@{/beginnerLevel}"> Let's start </a>
+            <a href="#" th:case="2" th:form th:href="@{/intermediateLevel}"> Let's start </a>
+            <a href="#" th:case="3" th:form th:href="@{/advanceLevel}">  Let's start </a>
+                     </div>
         </button>
     </div>
 </div>

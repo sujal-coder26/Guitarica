@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:fragment="level3">
+<button class="next">
+    <span> <a class="nextlesson" href="#" th:href="@{/nextLevelAdvance}"> Next-> </a></span>
+</button>
+<div>
+    <div class="advance-lesson-part-inside">3</div>
+
+    <h1 class="advancemajorheading">Tranpose</h1>
+    <p>
+        When you transpose a song, it sounds lower or higher than it did
+        originally. If you transpose a song composed in the key of C major
+        to the key of D major, for example, the pitch will be higher. The
+        key of D is a whole tone higher than the key of C.
+        <br />
+        Musicians, composers, performers, and arrangers transpose a song for
+        a variety of reasons. You may make a tune that is suited for your
+        vocals by transposing a musical composition. Some vocalists, for
+        example, may feel the notes of a song to be too high or too low. The
+        vocalist will find it simpler to execute the music piece if the song
+        is transposed. It will also sound better since the instrument's tone
+        and the vocalist's pitch are in sync.
+    </p>
+    <h1 class="howtotranpose">
+        Transposing a Song: A Step-by-Step Guide.
+    </h1>
+    <ol class="waystotranpose">
+        <li>Determine the key of the song. i.e. key of C.</li>
+        <li>Determine the chord progression. i.e. C-F-G</li>
+        <li>Determine the new key. i.e key of G.</li>
+        <li>
+            Determine the interval between the keys. i.e. C to G is 5 steps
+            (including sharps)
+        </li>
+        <li>Shift the chords and notes by the interval.</li>
+        <li>
+            By shifting, the new progression will be formed. i.e. G-C-D
+            (perfect 5 steps)
+        </li>
+    </ol>
+    <img src="../static/Image/C and G chart.jpg"
+         th:src="@{Image/C and G chart.jpg}" alt="" />
+    <h1 class="howtotranpose">Using a Capo</h1>
+    <img src="../static/Image/capo.jpg"
+         th:src="@{Image/capo.jpg}" alt="" width="450" height="300" />
+    <p class="capo">
+        A capo is essentially a clamp that can be used anywhere on the
+        fretboard. You open the 'clamp' and place it on the fretboard where
+        you want it. The capo then pushes all the strings down when you
+        close it.
+        <br />Capo changes the guitar's key.
+        <b>
+            If you put a capo on the second fret and play a C chord, the sound
+            that comes out of your guitar will be D.</b
+        >
+        You'd be holding a C chord form, but the actual chord that would be
+        heard would be D since the capo has raised the guitar's key.
+        <b>See the image at right for more clarification.</b>
+        <br />
+        <br />
+        A capo is your best buddy if you're a serious singer-songwriter.
+        Assume you've composed a song with a memorable melody and powerful
+        chords. However, you're having trouble singing it correctly. You may
+        swiftly change the key of a song by changing the capo to a different
+        fret while using a capo.
+    </p>
+    <img
+            class="capochart"
+            src="../static/Image/keychart3.jpg"
+            th:src="@{Image/keychart3.jpg}"
+            alt=""
+            width="500"
+            height="550"
+    />
+</div>
+</body>
+</html>
