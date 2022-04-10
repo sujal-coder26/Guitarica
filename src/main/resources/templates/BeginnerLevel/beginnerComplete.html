@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <link rel="stylesheet" href="" th:href="@{/css/Intermediate.css}"/>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="" th:href="@{/css/Intermediate.css}" />
+
+    <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
-<h1> Beginner level has been completed</h1>
-<button class="startintermediatelevel">
-    <span> <a class="signuphome" href="#" th:form th:href="@{/intermediateLevel}"> Intermediate Level - Let's start </a></span>
+<h1 class="beginnerCompleteh">Beginner level has been completed!!</h1>
+<button class="back">
+    <span> <a class="nextlesson" href="#" th:href="@{/backLevel}"> <-Back </a></span>
 </button>
-
+<button class="startintermediatelevel">
+      <span>
+        <a class="signuphome" href="#" th:href="@{/intermediateLevel}">
+          Intermediate Level - Let's start
+        </a></span
+      >
+</button>
+<div class="wavyCongratulation">
+    <span style="--s: 1">C</span>
+    <span style="--s: 2">o</span>
+    <span style="--s: 3">n</span>
+    <span style="--s: 4">g</span>
+    <span style="--s: 5">r</span>
+    <span style="--s: 6">a</span>
+    <span style="--s: 7">l</span>
+    <span style="--s: 8">a</span>
+    <span style="--s: 9">t</span>
+    <span style="--s: 10">i</span>
+    <span style="--s: 11">o</span>
+    <span style="--s: 12">n</span>
+</div>
+<ol class="descriptionOfPage">
+    <li>There are 5 stages inside the Intermediate Level.</li>
+    <li>First level will give you idea about the Fretboard .</li>
+    <li>Second level will teach you about the Barre Chords.</li>
+    <li>Third level will teach you about the Fingerpicking.</li>
+    <li>Forth level will teach you more chords.</li>
+    <li>And last level will teach you some songs to play.</li>
+    <li>Never stop learning, You should explore more!</li>
+    <li>
+        Create A Positive Mindset. I hope you will be a good guitarist in the
+        future.
+    </li>
+</ol>
 </body>
 </html>

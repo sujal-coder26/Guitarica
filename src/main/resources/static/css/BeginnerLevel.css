@@ -225,7 +225,7 @@
     background-color: darkcyan;
     border: none;
     position: absolute;
-    top:1100px;
+    top:1250px;
     left:1300px;
     color: white;
     padding: 15px 30px;
@@ -234,6 +234,22 @@
     text-align: center;
     font-size: 22px;
     cursor: pointer;
+    width: 130px;
+}
+.back {
+    background-color: darkcyan;
+    border: none;
+    position: absolute;
+    top:1250px;
+    left:50px;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+    width: 130px;
 }
 .whichlevel {
     position: absolute;
@@ -253,12 +269,12 @@
     color: white;
 
 }
-.startbeginnerlevel {
+.startintermediatelevel {
     background-color: darkcyan;
     border: none;
     position: absolute;
-    top:1200px;
-    left:1200px;
+    top:1250px;
+    left:1300px;
     color: white;
     padding: 15px 30px;
     text-decoration: none;

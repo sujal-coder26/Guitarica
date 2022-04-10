@@ -115,9 +115,11 @@ public class HomeController { //making controller
     System.out.println("Username: " + username);
     User user = userRepository.getUserByUserName(username);
     Course course = trackerRepository.findByUserIdAndStatus(user, "ACTIVE").get().getCourseId();
+    int subLevel = trackerRepository.findByUserIdAndStatus(user, "ACTIVE").get().getSubLevel();
     System.out.println(course.getWeightage());
     model.addAttribute("user", user);
     model.addAttribute("course", course);
+    model.addAttribute("sublevel", subLevel);
     return "dashboard";
   }
 
@@ -131,6 +133,20 @@ public class HomeController { //making controller
     }
     Course course = new Course(1,"Beginner",1);
     Tracker tracker = new Tracker(course, user, trackerRepository.findByUserIdAndStatus(user,"ACTIVE").get().getSubLevel() + 1, "ACTIVE");
+    trackerRepository.save(tracker);
+
+    return "redirect:/beginnerLevel";
+  }
+  @RequestMapping("/backLevel")
+  public String insertDataBack(Principal principal){
+    String username = principal.getName();
+    System.out.println(username);
+    User user = userRepository.getUserByUserName(username);
+    if (trackerRepository.findByUserIdAndStatus(user, "ACTIVE").isPresent()) {
+      trackerRepository.findByUserIdAndStatus(user, "ACTIVE").get().setStatus("COMPLETED");
+    }
+    Course course = new Course(1,"Beginner",1);
+    Tracker tracker = new Tracker(course, user, trackerRepository.findByUserIdAndStatus(user,"ACTIVE").get().getSubLevel() - 1, "ACTIVE");
     trackerRepository.save(tracker);
 
     return "redirect:/beginnerLevel";
@@ -149,7 +165,32 @@ public class HomeController { //making controller
 
     return "redirect:/intermediateLevel";
   }
+  @RequestMapping("/backLevelIntermediate")
+  public String insertDataBackInter(Principal principal){
+    String username = principal.getName();
+    User user = userRepository.getUserByUserName(username);
+    if (trackerRepository.findByUserIdAndStatus(user, "ACTIVE").isPresent()) {
+      trackerRepository.findByUserIdAndStatus(user, "ACTIVE").get().setStatus("COMPLETED");
+    }
+    Course course = new Course(2,"Intermediate",2);
+    Tracker tracker = new Tracker(course, user, trackerRepository.findByUserIdAndStatus(user,"ACTIVE").get().getSubLevel() - 1, "ACTIVE");
+    trackerRepository.save(tracker);
 
+    return "redirect:/intermediateLevel";
+  }
+  @RequestMapping("/backLevelAdvance")
+  public String insertDataBackAdvance(Principal principal){
+    String username = principal.getName();
+    User user = userRepository.getUserByUserName(username);
+    if (trackerRepository.findByUserIdAndStatus(user, "ACTIVE").isPresent()) {
+      trackerRepository.findByUserIdAndStatus(user, "ACTIVE").get().setStatus("COMPLETED");
+    }
+    Course course = new Course(3,"Advance",3);
+    Tracker tracker = new Tracker(course, user, trackerRepository.findByUserIdAndStatus(user,"ACTIVE").get().getSubLevel() - 1, "ACTIVE");
+    trackerRepository.save(tracker);
+
+    return "redirect:/advanceLevel";
+  }
   @RequestMapping("/nextLevelAdvance")
   public String insertDataAdvance(Principal principal){
     String username = principal.getName();
@@ -235,8 +276,11 @@ public class HomeController { //making controller
   }
 
   @GetMapping("/completed")
-  public String completed( Principal principal){
+  public String completed( Model model,Principal principal){
     String username = principal.getName();
+    User userfind = userRepository.getUserByUserName(username);
+    String userName = userfind.getUsername();
+    System.out.println(username);
     Course course = new Course(3,"Advance",3);
     User user = userRepository.getUserByUserName(username);
     if (trackerRepository.findByUserIdAndStatus(user, "ACTIVE").isPresent()) {
@@ -244,6 +288,7 @@ public class HomeController { //making controller
     }
     Tracker tracker = new Tracker(course, user, 16, "ACTIVE");
     trackerService.save(tracker);
+    model.addAttribute("userName", userName);
     return "certificate";
   }
 
