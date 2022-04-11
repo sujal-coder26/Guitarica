@@ -25,18 +25,19 @@
     <title th:text="${title}"> Title </title>
 </head>
 <body id="homeMain">
-
+<button class="button homeloginbutton"> <span> <a class="signuphome" href="#" th:href="@{/signin}"> LogIn </a></span></button>
+<img class="guitaricalogohome" width="100" src="../static/Image/guitarica.jpg"
+     th:src="@{Image/guitarica.jpg}"/>
 <main >
     <div>
         <ol class="content">
             <li class="content__item">
-                <button class="button homeloginbutton"> <span> <a class="signuphome" href="#" th:href="@{/signin}"> LogIn </a></span></button>
+
             </li>
         </ol>
     </div>
     <section class="homepageSection">
-        <img class="guitaricalogohome" width="100" src="../static/Image/guitarica.jpg"
-             th:src="@{Image/guitarica.jpg}"/>
+
         <h1 class="homeheading">Welcome To Guitarica</h1>
         <p class="homeparagraph2">
             Join to the best course and explore the guitar world! 

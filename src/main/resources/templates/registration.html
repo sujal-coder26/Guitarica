@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="name-field">Tell us something about yourself</label>
-                            <textarea name="about" th:value="${user.about}" rows="15" cols="20" class="form-control" th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}" placeholder="Enter About Yourself..."></textarea>
+                            <textarea name="about" th:value="${user.about}" rows="15" cols="30" class="form-control" th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}" placeholder="Enter About Yourself..."></textarea>
                             <div class="invalid-feedback" th:each="e: ${#fields.errors('about')}" th:text="${e}">
                             </div>
                             </div>

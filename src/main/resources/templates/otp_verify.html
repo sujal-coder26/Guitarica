@@ -6,7 +6,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="" th:href="@{/css/work.css}"/>
 
-    <title th:text="${title}"> Title </title>
+    <title> Verification </title>
 </head>
 <body class="loginbody">
 
@@ -30,7 +30,7 @@
 
 <form method="post" class="forgotForm" action="" th:action="@{/otp-verify}">
     <div class="forgotFormContainer">
-        <h3 class="text-center"> Registered Email </h3>
+        <h3 class="text-center"> Verification </h3>
         <div class="form-group">
 
             <input name="otp" required ="required" type="text" class="form-control" placeholder="Enter OTP here" aria-label="Username" aria-describedby="basic-addon1">

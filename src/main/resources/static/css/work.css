@@ -125,7 +125,7 @@ main {
 .navbar{
 	position: fixed;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	align-items: center;
 	flex-direction: row;
 	background-color:#0a0a0a;
@@ -136,15 +136,14 @@ main {
 }
 .nav{
 	display: flex;
-	justify-content: right;
-	list-style: none;
-	margin-right: 15%;
+	margin-left: 200px;
 }
 .navbara{
 	margin: 15px;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: white;
+	font-size: 22px;
 }
 #contactus {
 	width: 100%;
@@ -592,6 +591,7 @@ textarea{
 	top: 50%;
 	left: 50%;
 	width: 700px;
+	height: 290px;
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
@@ -662,8 +662,7 @@ textarea{
 .guitaricalogo{
 	border-radius: 50%;
 	position: absolute;
-	top:150px;
-	left:895px;
+	left: 10px;
 }
 
 .loginlabel {
@@ -673,8 +672,8 @@ textarea{
 .guitaricalogohome{
 	border-radius: 50%;
 	position: absolute;
-	top:20px;
-	left:540px;
+	z-index: 2;
+	left: 16px;
 }
 .login button a{
 	text-decoration: none;
@@ -768,13 +767,14 @@ textarea{
 	left: 0;
 }
 
-.button {
+.button{
 	position: absolute;
-	top: 5px;
-	left: 980px;
+	top: 2px;
+	left: 1600px;
 	pointer-events: auto;
 	cursor: pointer;
 	background: #e7e7e7;
+	z-index: 2;
 	border: none;
 	padding: 1.5rem 3rem;
 	margin: 0;
@@ -783,7 +783,10 @@ textarea{
 	width: 250px;
 	display: inline-block;
 }
-
+.forgotpassworddiv {
+	position: relative;
+	top: 7px;
+}
 .button::before,
 .button::after {
 	position: absolute;
@@ -804,7 +807,7 @@ i {
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	top:200px;
+	top:100px;
 }
 .div1,
 .div2,
