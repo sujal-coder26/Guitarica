@@ -33,8 +33,6 @@ public class PaymentController {
         System.out.println(order.getMethod());
         System.out.println("http://localhost:8080/"+CANCEL);
         System.out.println("http://localhost:8080/"+SUCCESS);
-
-
         try {
             Payment paymentData = service.createPaymentService(order.getPrice(), order.getCurrency(), order.getMethod(),
                     order.getIntent(), order.getDescription(), "http://localhost:8080/"+CANCEL,

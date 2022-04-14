@@ -14,18 +14,6 @@
         <img class="guitaricalogo" src="../static/Image/guitarica.jpg" width="100"
              th:src="@{Image/guitarica.jpg}"/>
     </div>
-<!--    <div th:if="${param.error}" >-->
-
-<!--        Invalid username and password-->
-<!--    </div>-->
-
-<!--    <div th:if="${param.logout}" >-->
-<!--        You have been log out-->
-<!--    </div>-->
-
-<!--    <div th:if="${param.changed}">-->
-<!--        <p th:text="${param.changed}"> </p>-->
-<!--    </div>-->
     <div class="alert" th:if="${param.error}">
         <span class="closebtn">&times;</span>
         <strong>Oppps!</strong> Username of Password didn't match.

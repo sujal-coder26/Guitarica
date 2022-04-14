@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Global Guitar Discussion</title>
+    <link rel="stylesheet" href="" th:href="@{/css/chatbox.css}"/>
+</head>
+<body>
+<div id="welcome-page">
+    <div class="welcome-page-container">
+        <form id="formUsername" name="usernameForm">
+            <div class="form-group">
+                <h1 class="rulesheading"> Chat Information</h1>
+                <input  th:value="${userName}" type="text" id="name" placeholder="username" autocomplete="off" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="accent welcome-submit">Start Chatting</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+<ol class="rulesChatBox">
+    <li>Welcome to the Global Chat.</li>
+    <li>All the user in the system can come here and chat.</li>
+    <li>They can only see your messages only after if they join.</li>
+    <li>Maintain peace and helpful environment.</li>
+    <li>You messages are not saved and tracked. So, the message gets remove after reload.</li>
+
+</ol>
+<img class="chatImage"
+     th:src="@{Image/chat.jpg}" width="1000" height="800" />
+<div id="global-chat" class="hidden">
+    <div class="container-chat">
+        <div class="mainHeader">
+            <h2>Global Guitar Discussion</h2>
+        </div>
+        <div class="connectingToChat">
+            Connecting...
+        </div>
+        <ul id="areaMessage">
+
+        </ul>
+        <form id="formMessage" name="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="messageInputBox" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="" th:src="@{/js/chatbox.js}"></script>
+</body>
+</html>

@@ -292,6 +292,16 @@ public class HomeController { //making controller
     return "certificate";
   }
 
+  @GetMapping("/chatbox")
+  public String chatbox(Model model, Principal principal){
+    String username = principal.getName();
+    User userfind = userRepository.getUserByUserName(username);
+    String userName = userfind.getUsername();
+    model.addAttribute("userName", userName);
+    return "ChatMessage";
+  }
+
+
   @PostMapping("/sendContact")
   public String sendContact(HttpServletRequest request){
     String name = request.getParameter("name");

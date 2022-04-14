@@ -24,14 +24,14 @@
                     <form novalidate action="" th:action="@{/doRegister}" method="post" th:object="${user}" enctype="multipart/form-data" >
                         <div class="form-group">
                             <label for="name-field">Your Full Name</label>
-                            <input  name="username" class="form-control" th:classappend="${#fields.hasErrors('username') ? 'is-invalid':''}" type="text" id="name-field" aria-describedby="emailHelp" placeholder="Enter Here..." required th:value="${user.username}"/>
+                            <input  name="username" class="form-control" th:classappend="${#fields.hasErrors('username') ? 'is-invalid':''}" type="text" id="name-field" aria-describedby="emailHelp" placeholder="Enter Here..." required =""/>
                             <div class="invalid-feedback" th:each="e: ${#fields.errors('username')}" th:text="${e}">
 
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email-field">Your Email</label>
-                            <input name="email" type="text" class="form-control" th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}" id="email-field" aria-describedby="emailHelp" placeholder="Enter Here..." required th:value="${user.email}">
+                            <input name="email" type="text" class="form-control" th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}" id="email-field" aria-describedby="emailHelp" placeholder="Enter Here..." required="" >
                             <div class="invalid-feedback" th:each="e: ${#fields.errors('email')}" th:text="${e}">
 
                             </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="name-field">Tell us something about yourself</label>
-                            <textarea name="about" th:value="${user.about}" rows="15" cols="30" class="form-control" th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}" placeholder="Enter About Yourself..."></textarea>
+                            <textarea name="about" rows="15" cols="30" class="form-control" th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}" placeholder="Enter About Yourself..."></textarea>
                             <div class="invalid-feedback" th:each="e: ${#fields.errors('about')}" th:text="${e}">
                             </div>
                             </div>

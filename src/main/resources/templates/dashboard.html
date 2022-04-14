@@ -47,6 +47,11 @@
             <a href="#" th:href="@{/guitartuner}"> Tuner </a></span>
         </button>
         <button class="startbeginnerlevel">
+          <span>
+
+            <a href="#" th:href="@{/chatbox}"> Global Chat </a></span>
+        </button>
+        <button class="startbeginnerlevel">
               <div th:switch="${course.weightage}">
             <a href="#" th:case="1" th:form th:href="@{/beginnerLevel}"> Let's start </a>
             <a href="#" th:case="2" th:form th:href="@{/intermediateLevel}"> Let's start </a>
